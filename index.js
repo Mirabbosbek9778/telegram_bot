@@ -11,11 +11,22 @@ bot.on("message", async (msg) => {
   if (text === "/start") {
     return bot.sendMessage(
       chatId,
-      "Assalomu alaykum va rahmatillohu va barakatoh!"
+      `Assalomu alaykum hurmatli ${msg?.from?.first_name} botimizga kirganingizdan hursandman`
     );
   }
 
   if (text === "/info") {
-    return bot.sendMessage(chatId, "Mirabbos Platform");
+    await bot.sendSticker(
+      chatId,
+      "https://tlgrm.eu/_/stickers/711/2ce/7112ce51-3cc1-42ca-8de7-62e7525dc332/192/2.webp"
+    );
+    await bot.sendPhoto(
+      chatId,
+      "https://tlgrm.eu/_/stickers/711/2ce/7112ce51-3cc1-42ca-8de7-62e7525dc332/192/2.webp"
+    );
+    return bot.sendMessage(
+      chatId,
+      `Sizning telegramingiz ${msg?.from?.username} sizni ismingiz ${msg?.from?.first_name} ${msg?.from?.last_name}`
+    );
   }
 });
