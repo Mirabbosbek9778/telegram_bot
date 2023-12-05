@@ -4,6 +4,17 @@ const token = "6668151616:AAHKzHjtVWcjXGpRkNpXmAaLRm7X-II-Vlo";
 
 const bot = new TelegramBot(token, { polling: true });
 
+bot.setMyCommands([
+  {
+    command: "/start",
+    description: "Start",
+  },
+  {
+    command: "/info",
+    description: "Information bot",
+  },
+]);
+
 bot.on("message", async (msg) => {
   const text = msg.text;
   const chatId = msg?.chat?.id;
@@ -29,4 +40,6 @@ bot.on("message", async (msg) => {
       `Sizning telegramingiz ${msg?.from?.username} sizni ismingiz ${msg?.from?.first_name} ${msg?.from?.last_name}`
     );
   }
+
+  bot.sendMessage(chatId, "Kechirasiz men Sizni tushunmayapman!! ):");
 });
